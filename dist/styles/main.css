@@ -1,1 +1,1 @@
-body{background-color:#000;padding-top:20px;padding-bottom:20px}.logo{width:160px;height:160px;background-image:url(../images/logo.png);background-size:70%;background-position:center;background-repeat:no-repeat;background-color:#fff;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+body{padding-top:20px;padding-bottom:20px}.logo{width:600px;max-width:80vw;height:400px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}

@@ -1,24 +1,19 @@
 $icon-font-path: '../fonts/';
+$black:         #0D0D0A;
 
 // bower:scss
 // endbower
 
 /* Space out content a bit */
 body {
-  background-color: #000;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .logo {
-  width: 160px;
-  height: 160px;
-  background-image: url(../images/logo.png);
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #fff;
-  border-radius: 50%;
+  width: 600px;
+  max-width: 80vw;
+  height: 400px;
   position: absolute;
   top: 50%;
   left: 50%;

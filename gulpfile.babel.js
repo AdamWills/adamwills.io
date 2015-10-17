@@ -4,6 +4,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+import svgmin from 'svgmin';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -41,10 +42,16 @@ const testLintOptions = {
 gulp.task('lint', lint('app/scripts/**/*.js'));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
-gulp.task('html', ['styles'], () => {
+gulp.task('html', ['styles', 'svg'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
+  var injectSources = gulp.src(['./.tmp/*.svg']);
+
+  function fileContents (filePath, file) {
+        return file.contents.toString();
+    }
 
   return gulp.src('app/*.html')
+    .pipe($.inject(injectSources, { transform: fileContents }))
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
@@ -68,6 +75,13 @@ gulp.task('images', () => {
       this.end();
     })))
     .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('svg', () => {
+  return gulp
+      .src('app/images/**/*.svg')
+      .pipe($.svgstore({ inlineSvg: true }))
+      .pipe(gulp.dest('.tmp'));
 });
 
 gulp.task('fonts', () => {

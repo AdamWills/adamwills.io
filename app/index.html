@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="description" content="Adam Wills - Web Developer, Photographer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>adamwills.io</title>
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <title>Adam Wills - Web Development</title>
 
     <!-- Place favicon.ico in the root directory -->
 
@@ -20,7 +22,13 @@
   </head>
   <body>
 
-    <div class="logo"></div>
+    <svg class="logo">
+      <use xlink:href="#logo" />
+    </svg>
+
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden">
+      <!-- inject:svg --><!-- endinject -->
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
